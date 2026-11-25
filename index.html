@@ -10,12 +10,21 @@
   <main class="contenedor">
     <h1>Diario de EStudio</h1>
 
-    <!-- La racha se calcula sola con JavaScript -->
-    <section class="tarjeta racha">
-      <div class="fuego" aria-hidden="true">🔥</div>
-      <div class="racha-numero" id="racha-numero">0</div>
-      <div class="racha-texto">días seguidos estudiando</div>
-    </section>
+    <!-- Las rachas se calculan solas con JavaScript -->
+    <div class="rachas">
+      <section class="tarjeta racha">
+        <div class="fuego" aria-hidden="true">🔥</div>
+        <div class="racha-numero" id="racha-numero">0</div>
+        <div class="racha-texto">días seguidos estudiando</div>
+      </section>
+
+      <!-- La mejor racha usa todas las sesiones guardadas -->
+      <section class="tarjeta racha record">
+        <div class="fuego" aria-hidden="true">🏆</div>
+        <div class="racha-numero" id="racha-mas-larga-numero">0</div>
+        <div class="racha-texto">días seguidos (mejor racha)</div>
+      </section>
+    </div>
 
     <!-- Formulario para apuntar una sesión -->
     <section class="tarjeta">

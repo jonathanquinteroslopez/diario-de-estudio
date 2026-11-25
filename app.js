@@ -9,6 +9,7 @@ const campoTema = document.getElementById("tema");
 const campoMinutos = document.getElementById("minutos");
 const lista = document.getElementById("lista");
 const rachaNumero = document.getElementById("racha-numero");
+const rachaMasLargaNumero = document.getElementById("racha-mas-larga-numero");
 
 // Cargamos las sesiones guardadas antes de dibujar nada.
 let sesiones = cargarSesiones();
@@ -17,6 +18,7 @@ let sesiones = cargarSesiones();
 campoFecha.value = fechaComoTexto(new Date());
 
 dibujarRacha();
+dibujarRachaMasLarga();
 dibujarLista();
 
 formulario.addEventListener("submit", function (evento) {
@@ -37,6 +39,7 @@ formulario.addEventListener("submit", function (evento) {
 
   guardarSesiones();
   dibujarRacha();
+  dibujarRachaMasLarga();
   dibujarLista();
 
   // Dejamos el formulario listo para la siguiente sesión.
@@ -93,6 +96,34 @@ function calcularRacha() {
 
 function dibujarRacha() {
   rachaNumero.textContent = calcularRacha();
+}
+
+// La mejor racha es el tramo consecutivo más largo de toda la historia.
+function calcularRachaMasLarga() {
+  const diasConSesion = Array.from(new Set(sesiones.map(function (sesion) {
+    return sesion.fecha;
+  }))).sort();
+
+  let mejor = 0;
+  let actual = 0;
+  let diaAnterior = null;
+
+  for (const dia of diasConSesion) {
+    // "AAAA-MM-DD" se convierte con hora local: new Date("AAAA-MM-DD") sería UTC.
+    const siguienteDelAnterior = diaAnterior === null
+      ? null
+      : fechaComoTexto(diaSiguiente(new Date(diaAnterior + "T12:00:00"), 1));
+
+    actual = siguienteDelAnterior === dia ? actual + 1 : 1;
+    if (actual > mejor) mejor = actual;
+    diaAnterior = dia;
+  }
+
+  return mejor;
+}
+
+function dibujarRachaMasLarga() {
+  rachaMasLargaNumero.textContent = calcularRachaMasLarga();
 }
 
 // ---------- Lista ----------

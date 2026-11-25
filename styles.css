@@ -61,6 +61,21 @@ h2 {
   color: #6b7280;
 }
 
+.rachas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rachas .tarjeta {
+  margin-bottom: 0;
+}
+
+.record .racha-numero {
+  color: #b45309;
+}
+
 /* Formulario */
 
 .campo {
@@ -147,6 +162,16 @@ button:hover {
 @media (max-width: 480px) {
   .racha-numero {
     font-size: 3.8rem;
+  }
+
+  .rachas {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .rachas .tarjeta {
+    margin-bottom: 16px;
   }
 
   .elemento {
