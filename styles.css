@@ -1,0 +1,157 @@
+/* Estilos base: se ve bien en móvil y en ordenador */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  background: #f4f6fb;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+}
+
+.tarjeta {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.07);
+}
+
+/* Racha */
+
+.racha {
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.fuego {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.racha-numero {
+  font-size: 4.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  color: #ea580c;
+}
+
+.racha-texto {
+  color: #6b7280;
+}
+
+/* Formulario */
+
+.campo {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+input:focus {
+  outline: 2px solid #fb923c;
+  outline-offset: 1px;
+  border-color: #ea580c;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c2410c;
+}
+
+/* Lista de sesiones */
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.elemento {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.elemento:last-child {
+  border-bottom: none;
+}
+
+.tema {
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.detalles {
+  color: #6b7280;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.vacio {
+  color: #6b7280;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .racha-numero {
+    font-size: 3.8rem;
+  }
+
+  .elemento {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
